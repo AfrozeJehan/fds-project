@@ -1,0 +1,21 @@
+# Notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data files (CRUCIAL)
+*.csv
+*.xlsx
+*.h5
+*.pkl
+*.parquet
+*.db
+/data/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment
+.env
+venv/
+env/

@@ -1,6 +1,6 @@
 # FDS Project: FoodHub Data Analysis
 
-[![View HTML Report](https://img.shields.io/badge/📊-View_Full_Report_(HTML)-blue)](project_report.html)
+[![View HTML Report](https://img.shields.io/badge/📊-View_Full_Report_(HTML)-blue)](docs/index.html)
 [![Jupyter Notebook](https://img.shields.io/badge/📓-View_Notebook_(Code)-orange)](notebooks/FDS_Project_LearnerNotebook_FullCode.ipynb)
 
 ## 📌 Project Overview

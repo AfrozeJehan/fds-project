@@ -1,0 +1,33 @@
+name: Validate project artifacts
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate notebook JSON
+        run: python -m json.tool notebooks/FDS_Project_LearnerNotebook_FullCode.ipynb > /dev/null
+      - name: Validate required files and links
+        shell: bash
+        run: |
+          test -f LICENSE
+          test -f README.md
+          test -f docs/index.html
+          test -f docs/data-dictionary.md
+          test -f docs/results.md
+          grep -q 'https://afrozejehan.github.io/fds-project/' README.md
+          grep -q 'docs/data-dictionary.md' README.md
+          grep -q 'docs/results.md' README.md
+          grep -q 'notebooks/FDS_Project_LearnerNotebook_FullCode.ipynb' README.md
+      - name: Validate repository integrity
+        shell: bash
+        run: |
+          test "$(find docs -maxdepth 1 -name 'index.html' | wc -l)" -eq 1
+          test "$(find notebooks -maxdepth 1 -name '*.ipynb' | wc -l)" -eq 1
